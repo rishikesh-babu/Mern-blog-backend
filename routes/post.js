@@ -16,6 +16,6 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 router.post('/createpost', verifyUser, createPost)
 router.post('/addImage', verifyUser, upload.single('img'), addImageController) // img - passig from frontend
-router.get('/getPostData', getPostData)
+router.get('/getPostData', verifyUser, getPostData)
 
 module.exports = router;   
